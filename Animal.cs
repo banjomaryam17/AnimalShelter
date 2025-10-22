@@ -76,4 +76,65 @@ public abstract class Animal
         medicalNotes = "";
         needsFoster = false;
     }
-}
+
+    public abstract string GetAnimalType();
+
+    public void DisplayInfo()
+    {
+        Console.WriteLine();
+        Console.WriteLine("=== " + GetAnimalType() + " INFORMATION ===");
+        Console.WriteLine();
+        Console.WriteLine("ID: " + id);
+        Console.WriteLine("Name: " + name);
+        Console.WriteLine("Age: " + age + " years old");
+        Console.WriteLine("Breed: " + breed);
+        Console.WriteLine("Location: " + location);
+
+        if (isVaccinated)
+        {
+            Console.WriteLine("Vaccinated: Yes");
+        }
+        else
+        {
+            Console.WriteLine("Vaccinated: No");
+        }
+
+        if (isAvailaibleForAdoption)
+        {
+            Console.WriteLine("Availaible for Adoption: Yes");
+        }
+        else
+        {
+            Console.WriteLine("Availaible for Adoption: No");
+        }
+
+        if (medicalNotes != "" && medicalNotes != null)
+        {
+            Console.WriteLine("Medical Notes: " + medicalNotes);
+        }
+
+        Console.WriteLine("==============================================");
+    }
+    public void UpdateVaccination(bool vaccinated)
+    {
+        IsVaccinated = vaccinated;
+        Console.WriteLine($"✓ {Name}'s vaccination status updated to: {(vaccinated ? "Vaccinated" : "Not Vaccinated")}");
+    }
+
+    public void AddMedicalNote(string note)
+        {
+            string dateStamp = DateTime.Now.ToString("yyyy-MM-dd");
+            
+            if (string.IsNullOrEmpty(MedicalNotes))
+            {
+                MedicalNotes = $"[{dateStamp}] {note}";
+            }
+            else
+            {
+                MedicalNotes += $"\n[{dateStamp}] {note}";
+            }
+            
+            Console.WriteLine($"✓ Medical note added for {Name}");
+        }
+    
+    }
