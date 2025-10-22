@@ -1,6 +1,6 @@
-namespace AnimalShelter;
-
-public abstract class Animal
+namespace AnimalShelter
+{
+    public abstract class Animal
 {
     public int id;
     public string name;
@@ -138,3 +138,6 @@ public abstract class Animal
         }
     
     }
+
+}
+
