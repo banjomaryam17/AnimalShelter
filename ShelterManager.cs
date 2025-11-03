@@ -200,11 +200,11 @@ public class ShelterManager
 
         foreach (Animal animal in animals)
         {
-            if (animal. GetAnimalType() == "dog")
+            if (animal. GetAnimalType() == "Dog")
             {
                 dogCount++;
             }
-            else if (animal.GetAnimalType() == "cat")
+            else if (animal.GetAnimalType() == "Cat")
             {
                 catCount++;
             }
