@@ -113,7 +113,7 @@ namespace AnimalShelter
             Console.WriteLine("Medical Notes: " + medicalNotes);
         }
 
-        Console.WriteLine("==============================================");
+        Console.WriteLine();
     }
     public void UpdateVaccination(bool vaccinated)
     {
