@@ -16,6 +16,8 @@ class Program
       {
           active = DisplayMainMenu();
       }
+      Console.WriteLine("Saving data to file...");
+      manager.SaveToFile();
       Console.WriteLine("Thank you for using the Animal Shelter Management System");
    }
 
