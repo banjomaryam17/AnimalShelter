@@ -187,4 +187,60 @@ public class ShelterManager
         }
     }
 
+    public void DisplayStatistics()
+    {
+        Console.WriteLine("SHELTER STATISTICS REPORT");
+        Console.WriteLine("Total animals: " + animals.Count);
+        int dogCount = 0;
+        int catCount = 0;
+
+        int vaccinatedCount = 0;
+        int adoptCount = 0;
+        int fosterCount = 0;
+
+        foreach (Animal animal in animals)
+        {
+            if (animal. GetAnimalType() == "dog")
+            {
+                dogCount++;
+            }
+            else if (animal.GetAnimalType() == "cat")
+            {
+                catCount++;
+            }
+            if (animal.IsVaccinated)
+            {
+                vaccinatedCount++;
+            }
+            if (animal.NeedsFoster)
+            {
+                fosterCount++;
+            }
+            if (animal.IsAvailaibleForAdoption)
+            {
+                adoptCount++;
+            }
+        }
+        Console.WriteLine("Statistics by Type:");
+        Console.WriteLine("  Dogs: " + dogCount);
+        Console.WriteLine("  Cats: " + catCount);
+
+        Console.WriteLine("Statistics by Status:");
+        Console.WriteLine("  Vaccinated: " + vaccinatedCount + " out of " + animals.Count);
+        Console.WriteLine("  Need Foster: " + fosterCount);
+        Console.WriteLine("  Available for Adoption: " + adoptCount);
+        if (animals.Count > 0)
+        {
+            double vaccinatedPercent = (vaccinatedCount * 100.0) / animals.Count;
+            Console.WriteLine("Rate of Vaccinnation: " + vaccinatedPercent.ToString("0.0") + "%");
+        }
+
+
+
+
+
+    }
+
+   
+
 }
