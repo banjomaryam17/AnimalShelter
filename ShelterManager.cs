@@ -235,7 +235,7 @@ public class ShelterManager
             Console.WriteLine("Rate of Vaccinnation: " + vaccinatedPercent.ToString("0.0") + "%");
         }
     }
-
+    
     public List<Animal> SearchByName(string searchName)
     {
         List<Animal> results = new List<Animal>();
@@ -250,7 +250,4 @@ public class ShelterManager
 
         return results;
     }
-
-   
-
 }

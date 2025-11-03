@@ -10,6 +10,12 @@ class Program
       Console.WriteLine();
       Console.WriteLine("Loading data from file...");
       manager.LoadFromFile();
+      
+      if (manager.GetAllAnimals().Count == 0)
+      {
+          Console.WriteLine("No saved data found. Loading sample data...");
+          manager.LoadSampleData();
+      }
 
       bool active = true;
       while (active)
@@ -30,8 +36,11 @@ class Program
        Console.WriteLine("3. View Animals Needing a Foster Home");
        Console.WriteLine("4. View All Animals");
        Console.WriteLine("5. View Animals for Adoption");
-       Console.WriteLine("6. Exit");
-       Console.WriteLine("Enter your choice (1-6): ");
+       Console.WriteLine("6. View Statistics");
+       Console.WriteLine("7. Search Animals by Name");
+       Console.WriteLine("8. Save Data Manually");
+       Console.WriteLine("9. Exit");
+       Console.WriteLine("Enter your choice (1-9): ");
        
        
        string option = Console.ReadLine();
@@ -55,6 +64,15 @@ class Program
                AdoptedAnimals();
                break;
            case "6":
+               manager.DisplayStatistics();
+               break;
+           case "7":
+               SearchAnimalsByName();
+               break;
+           case "8":
+               manager.SaveToFile();
+               return false;
+           case "9":
                return false;
            default: Console.WriteLine("Unknown option");
                break;
@@ -256,8 +274,24 @@ class Program
 
                 manager.DisplayAnimalList(animalsToShow);
             }
+            static void SearchAnimalsByName()
+            {
+                Console.WriteLine("SEARCH ANIMALS BY NAME ");
+                Console.Write("Enter animal name: ");
+                string searchName = Console.ReadLine();
 
-         
+                List<Animal> results = manager.SearchByName(searchName);
+
+                if (results.Count == 0)
+                {
+                    Console.WriteLine("No animals found with name containing: " + searchName);
+                }
+                else
+                {
+                    Console.WriteLine("Found " + results.Count + " animal(s):");
+                    manager.DisplayAnimalList(results);
+                }
+            }
            
     }
         
