@@ -82,7 +82,7 @@ namespace AnimalShelter
     public void DisplayInfo()
     {
         Console.WriteLine();
-        Console.WriteLine("=== " + GetAnimalType() + " INFORMATION ===");
+        Console.WriteLine(" " + GetAnimalType() + " INFORMATION");
         Console.WriteLine();
         Console.WriteLine("ID: " + id);
         Console.WriteLine("Name: " + name);

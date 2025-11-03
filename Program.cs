@@ -67,7 +67,6 @@ class Program
    static void AddAnimal()
         {
             Console.WriteLine("ADD NEW ANIMAL");
-            
             Console.WriteLine("What type of animal?");
             Console.WriteLine("1. Dog");
             Console.WriteLine("2. Cat");
@@ -176,7 +175,12 @@ class Program
 
                 if (fosterAnimals.Count > 0)
                 {
+                    Console.WriteLine(fosterAnimals.Count + " animals needs foster homes!");
                     Console.WriteLine("Contact the shelter to arrange fostering!");
+                }
+                else
+                {
+                    Console.WriteLine("No amimals currently need foster care.");
                 }
             }
 
@@ -218,7 +222,7 @@ class Program
                 }
                 else if (choice == "3")
                 {
-                    Console.Write("Show vaccinated animals? (yes/no): ");
+                    Console.Write("Show vaccinated animals? ");
                     string vaccinated = Console.ReadLine();
                     bool isVaccinated = (vaccinated.ToLower() == "yes");
                     animalsToShow = manager.FilterByVaccination(isVaccinated);
