@@ -6,9 +6,10 @@ class Program
 
    private static void Main(string[] args)
    {
-      manager.LoadSampleData();
       Console.WriteLine("ANIMAL SHELTER MANAGEMENT SYSTEM");
       Console.WriteLine();
+      Console.WriteLine("Loading data from file...");
+      manager.LoadFromFile();
 
       bool active = true;
       while (active)

@@ -131,6 +131,22 @@ public class ShelterManager
             animal.DisplayInfo();
         }
     }
+    public void LoadFromFile()
+    {
+        animals = fileHandler.LoadAnimals();
+        if (animals.Count > 0)
+        {
+            int maxId = 0;
+            foreach (Animal animal in animals)
+            {
+                if (animal.Id > maxId)
+                {
+                    maxId = animal.Id;
+                }
+            }
+            nextId = maxId + 1;
+        }
+    }
     public void LoadSampleData()
     {
         Dog dog1 = new Dog(GetNextId(), "Buddy", 3, "Golden Retriever", "Dublin");
