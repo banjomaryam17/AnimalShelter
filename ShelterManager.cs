@@ -5,11 +5,13 @@ public class ShelterManager
 {
     private List<Animal> animals;
     private int nextId;
+    private FileHandler fileHandler;
 
     public ShelterManager()
     {
         animals = new List<Animal>();
         nextId = 1;
+        fileHandler = new FileHandler("animalsInfo.txt");
     }
 
     public void AddAnimal(Animal animal)
@@ -116,11 +118,11 @@ public class ShelterManager
     {
         if (animalList.Count == 0)
         {
-            Console.WriteLine("\nNo animals found.");
+            Console.WriteLine("No animals found.");
             return;
         }
 
-        Console.WriteLine("\n=== ANIMAL LIST ===");
+        Console.WriteLine("ANIMAL LIST");
         Console.WriteLine("Total animals: " + animalList.Count);
         Console.WriteLine();
 
@@ -145,8 +147,7 @@ public class ShelterManager
         dog3.IsVaccinated = false;
         dog3.isAvailaibleForAdoption = true;
         AddAnimal(dog3);
-
-        // Create some sample cats
+        
         Cat cat1 = new Cat(GetNextId(), "Whiskers", 4, "Siamese", "Galway");
         cat1.IsVaccinated = true;
         cat1.isAvailaibleForAdoption = true;
@@ -159,10 +160,10 @@ public class ShelterManager
 
         Cat cat3 = new Cat(GetNextId(), "Shadow", 6, "Tabby", "Dublin");
         cat3.IsVaccinated = true;
-        cat3.IsAvailaibleForAdoption = false;  // Already adopted
+        cat3.IsAvailaibleForAdoption = false;  
         AddAnimal(cat3);
 
-        Console.WriteLine("\nSample data loaded successfully!");
+        Console.WriteLine("Sample data loaded successfully!");
         Console.WriteLine("Total animals in shelter: " + animals.Count);
     }
 
