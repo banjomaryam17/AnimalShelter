@@ -234,11 +234,21 @@ public class ShelterManager
             double vaccinatedPercent = (vaccinatedCount * 100.0) / animals.Count;
             Console.WriteLine("Rate of Vaccinnation: " + vaccinatedPercent.ToString("0.0") + "%");
         }
+    }
 
+    public List<Animal> SearchByName(string searchName)
+    {
+        List<Animal> results = new List<Animal>();
+        string searchCase = searchName.ToLower();
+        foreach (Animal animal in animals)
+        {
+            if (animal.Name.ToLower().Contains(searchCase))
+            {
+                results.Add(animal);
+            }
+        }
 
-
-
-
+        return results;
     }
 
    
